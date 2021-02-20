@@ -10,24 +10,41 @@ public class SimpleMetalDetector : MonoBehaviour
     public Transform target;
     private float distance;
     //Score counting
-    public Text myText;
+    public Text scoreDist;
+    public Text foundAlert;
     private int score = 0;
+    private int randomRare;
     void Update()
     {
         //tracks distance between player and object, triggering a Collect when the player walks over the object
         distance = Vector3.Distance(transform.position, target.position);
-        print("distance = " + distance);
-        myText.text = score.ToString() + "   " + (Mathf.Round(distance)).ToString();
+
+       // print("distance = " + distance); (print distance from current object)
+        scoreDist.text = score.ToString() + "   " + (Mathf.Round(distance)).ToString();
         if (distance < 2)
         {
             Collect();
         }
     }
-    void Collect()
+    void Collect() // Run when an object is walked over
     {
-        ++score;
-        
-        //Randomize location
+        //++score;
+        //Randomly decide rarity of found item: Rare: 0-10 10% Uncommon 11-40 30% Common 41-100 60%
+        randomRare = (Random.Range(0, 100));
+        if (randomRare < 10)
+        {
+            valuableItem();
+        }
+        else if (randomRare > 41)
+        {
+            commonItem();
+        }
+        else
+        {
+            uncommonItem();
+        }
+
+        //Randomize location of next item
         Vector3 pos = transform.position;
 
         pos.x = Random.Range(-45.0f, 45.0f);
@@ -36,4 +53,32 @@ public class SimpleMetalDetector : MonoBehaviour
 
         transform.position = pos;
     }
+
+    //Add different score amounts depending on rarity of found object and Alert player to rarity of found object
+    void valuableItem()
+    {
+        score = score + 10;
+        print("Rare Item Found!");
+        foundAlert.text = "Rare Item Found!";
+        Invoke("reset", 2);
+    }
+    void commonItem()
+    {
+        score = score + 1;
+        print("Common Item Found!");
+        foundAlert.text = "Common Item Found!";
+        Invoke("reset", 2);
+    }
+    void uncommonItem()
+    {
+        score = score + 5;
+        print("Uncommon Item Found!");
+        foundAlert.text = "Uncommon Item Found!";
+        Invoke("reset", 2);
+    }
+     void reset() // Clear the alert from the screen
+     {
+        foundAlert.text = "";
+     }
+ 
 }
