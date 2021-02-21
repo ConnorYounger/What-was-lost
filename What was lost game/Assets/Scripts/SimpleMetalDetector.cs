@@ -14,19 +14,20 @@ public class SimpleMetalDetector : MonoBehaviour
     public Text foundAlert;
     private int score = 0;
     private int randomRare;
+    public Image signalStrength;
     void Update()
     {
         //tracks distance between player and object, triggering a Collect when the player walks over the object
         distance = Vector3.Distance(transform.position, target.position);
-
-       // print("distance = " + distance); (print distance from current object)
-        scoreDist.text = score.ToString() + "   " + (Mathf.Round(distance)).ToString();
+        signalStrength.fillAmount = (1.0f - (distance / 120));
+        // print("distance = " + distance); (print distance from current object to console) //- debug
+        scoreDist.text = score.ToString(); //+ "   " + (Mathf.Round(distance)).ToString(); //- old method
         if (distance < 2)
         {
             Collect();
         }
     }
-    void Collect() // Run when an object is walked over
+    void Collect() // Runs when an object is walked over
     {
         //++score;
         //Randomly decide rarity of found item: Rare: 0-10 10% Uncommon 11-40 30% Common 41-100 60%
@@ -76,9 +77,9 @@ public class SimpleMetalDetector : MonoBehaviour
         foundAlert.text = "Uncommon Item Found!";
         Invoke("reset", 2);
     }
-     void reset() // Clear the alert from the screen
-     {
+    void reset() // Clear the alert from the screen
+    {
         foundAlert.text = "";
-     }
+    }
  
 }
