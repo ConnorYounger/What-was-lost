@@ -9,19 +9,20 @@ public class SimpleMetalDetector : MonoBehaviour
     //Distance detection
     public Transform target;
     private float distance;
+    public Image signalStrength;
     //Score counting
     public Text scoreDist;
     public Text foundAlert;
     private int score = 0;
     private int randomRare;
-    public Image signalStrength;
+    
     void Update()
     {
         //tracks distance between player and object, triggering a Collect when the player walks over the object
         distance = Vector3.Distance(transform.position, target.position);
         signalStrength.fillAmount = (1.0f - (distance / 120));
         // print("distance = " + distance); (print distance from current object to console) //- debug
-        scoreDist.text = score.ToString(); //+ "   " + (Mathf.Round(distance)).ToString(); //- old method
+        scoreDist.text = score.ToString();
         if (distance < 2)
         {
             Collect();
