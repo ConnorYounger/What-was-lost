@@ -15,6 +15,10 @@ public class SimpleMetalDetector : MonoBehaviour
     public Text foundAlert;
     private int score = 0;
     private int randomRare;
+    //Sound
+    public AudioSource mDClick;
+    public float maxFreq = 0.05f;
+    float timer;
     
     void Update()
     {
@@ -23,9 +27,26 @@ public class SimpleMetalDetector : MonoBehaviour
         signalStrength.fillAmount = (1.0f - (distance / 120));
         // print("distance = " + distance); (print distance from current object to console) //- debug
         scoreDist.text = score.ToString();
-        if (distance < 2)
+        if (Input.GetKeyDown("e"))
         {
-            Collect();
+            if (distance < 2)
+            {
+                Collect();
+            }
+            else
+            {
+                foundAlert.text = "There's nothing here...";
+                Invoke("reset", 2);
+            }
+        }
+
+        //Metal Detector Sound system
+        timer += Time.deltaTime / distance;
+        print(timer);
+        if (timer > maxFreq)
+        {
+            mDClick.PlayOneShot(mDClick.clip, 1);
+            timer = 0;
         }
     }
     void Collect() // Runs when an object is walked over
