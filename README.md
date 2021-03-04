@@ -9,3 +9,7 @@ Connor Younger
 David Strudwick
 Mohammad Houari
 Yasmin Noble
+
+Naming Conventions 
+
+Creating a new Branch: *Subject* - *Your name*.  eg: Prototype-Level-Connor
