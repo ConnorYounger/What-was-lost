@@ -18,6 +18,24 @@ public class PhotoAlbum : MonoBehaviour
         UpdatePhoto();
     }
 
+    public void UpdatePhoto()
+    {
+        gameObject.GetComponent<Image>().sprite = photos[imageNum];
+    }
+
+    public void PrevPhoto()
+    {
+        imageNum = imageNum-1;
+        UpdatePhoto();
+    }
+
+    public void NextPhoto()
+    {
+        imageNum = imageNum+1;
+        UpdatePhoto();
+    }
+
+    private void Update()
     {
         if (imageNum == 0)
         {
