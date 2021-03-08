@@ -46,7 +46,7 @@ public class PhotoAlbum : MonoBehaviour
             prevPhoto.SetActive(true);
         }
 
-        if (imageNum == photos.Length)
+        if (imageNum == photos.Length -1)
         {
             nextPhoto.SetActive(false);
         }
