@@ -17,15 +17,17 @@ public class SimpleMetalDetector : MonoBehaviour
     private int randomRare;
     //Sound
     public AudioSource mDClick;
-    public float maxFreq = 0.05f;
+    private float maxFreq = 0.05f;
     float timer;
     
     void Update()
     {
         //tracks distance between player and object, triggering a Collect when the player walks over the object
-        distance = Vector3.Distance(transform.position, target.position);
+        var currentPosition = transform.position;
+        currentPosition.y = target.position.y;
+        distance = Vector3.Distance(currentPosition, target.position);
         signalStrength.fillAmount = (1.0f - (distance / 120));
-        // print("distance = " + distance); (print distance from current object to console) //- debug
+       // print("distance = " + distance); //(print distance from current object to console) //- debug
         scoreDist.text = score.ToString();
         if (Input.GetKeyDown("e"))
         {
@@ -42,7 +44,7 @@ public class SimpleMetalDetector : MonoBehaviour
 
         //Metal Detector Sound system
         timer += Time.deltaTime / distance;
-        print(timer);
+        // print(timer);
         if (timer > maxFreq)
         {
             mDClick.PlayOneShot(mDClick.clip, 1);
@@ -75,6 +77,18 @@ public class SimpleMetalDetector : MonoBehaviour
         pos.z = Random.Range(-45.0f, 45.0f);
 
         transform.position = pos;
+
+       // RaycastHit hit;
+       // Vector3 groundLocation;
+       // Debug.DrawLine(Vector3.zero, Vector3.up * 100);
+      //  if (Physics.Raycast(transform.position, Vector3.up, out hit, Mathf.Infinity))
+      //  {
+       //     groundLocation = hit.point;
+       //     print(hit.collider.name);
+       //     transform.position = groundLocation;
+
+       // }
+        
     }
 
     //Add different score amounts depending on rarity of found object and Alert player to rarity of found object
