@@ -27,7 +27,7 @@ public class SimpleMetalDetector : MonoBehaviour
         currentPosition.y = target.position.y;
         distance = Vector3.Distance(currentPosition, target.position);
         signalStrength.fillAmount = (1.0f - (distance / 120));
-       // print("distance = " + distance); //(print distance from current object to console) //- debug
+        print("distance = " + distance); //(print distance from current object to console) //- debug
         scoreDist.text = score.ToString();
         if (Input.GetKeyDown("e"))
         {
@@ -72,9 +72,9 @@ public class SimpleMetalDetector : MonoBehaviour
         //Randomize location of next item
         Vector3 pos = transform.position;
 
-        pos.x = Random.Range(-45.0f, 45.0f);
+        pos.x = Random.Range(-231f, 146f);
         pos.y = 0;
-        pos.z = Random.Range(-45.0f, 45.0f);
+        pos.z = Random.Range(-180f, -80f);
 
         transform.position = pos;
 
