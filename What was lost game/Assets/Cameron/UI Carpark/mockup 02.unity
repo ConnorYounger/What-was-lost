@@ -839,6 +839,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c67862f589c260a42bebe5bf5f049443, type: 3}
   - {fileID: 21300000, guid: 93089124ccf4fb84d803a0211875d98e, type: 3}
   - {fileID: 21300000, guid: dd20484a603794d418fe2b802b3af49f, type: 3}
+  imageNum: 0
   prevPhoto: {fileID: 37075832}
   nextPhoto: {fileID: 971665143}
 --- !u!1001 &374894099
