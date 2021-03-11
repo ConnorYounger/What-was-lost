@@ -22,6 +22,7 @@ public class PhotoAlbum : MonoBehaviour
         UpdatePhoto();
     }
 
+    // Change the photo display based on position in array & either display or hide a mask if the photo has been 'unlocked'
     public void UpdatePhoto()
     {
         gameObject.GetComponent<Image>().sprite = photos[imageNum];
@@ -35,18 +36,21 @@ public class PhotoAlbum : MonoBehaviour
         }
     }
 
+    // Change to the previous photo in array
     public void PrevPhoto()
     {
         imageNum = imageNum-1;
         UpdatePhoto();
     }
 
+    // Change to the next photo in array
     public void NextPhoto()
     {
         imageNum = imageNum+1;
         UpdatePhoto();
     }
-
+    
+    // Display or hide previous & next button based on position in photo array
     private void Update()
     {
         if (imageNum == 0)
