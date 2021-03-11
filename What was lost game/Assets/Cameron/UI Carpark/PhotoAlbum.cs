@@ -8,11 +8,15 @@ public class PhotoAlbum : MonoBehaviour
     public RectTransform parentPanel;
     public Sprite[] photos;
     public int imageNum;
+    public GameObject prevPhoto, nextPhoto, photoMask;
 
-    public GameObject prevPhoto, nextPhoto;
+    public bool[] photoFound;
 
     private void Start()
     {
+        photoMask = GameObject.Find("Photo_Mask");
+        photoFound = new bool[photos.Length];
+
         imageNum = 0;
 
         UpdatePhoto();
@@ -21,6 +25,14 @@ public class PhotoAlbum : MonoBehaviour
     public void UpdatePhoto()
     {
         gameObject.GetComponent<Image>().sprite = photos[imageNum];
+
+        if (photoFound[imageNum])
+        {
+            photoMask.SetActive(false);
+        } else if (!photoFound[imageNum])
+        {
+            photoMask.SetActive(true);
+        }
     }
 
     public void PrevPhoto()
