@@ -51,3 +51,5 @@ What was lost game/Assets/AssetStore.meta
 *.json
 What was lost game/Assets/David/DavidPrototype.unity
 *.meta
+*.ide-shm
+*.ide-wal
