@@ -30,6 +30,9 @@ sysinfo.txt
 *.userprefs
 *.pidb
 .DS_Store
+*.ide-shm
+*.ide-wal
+*.vs/
 
 ###
 # OS generated
@@ -54,6 +57,3 @@ What was lost game/Assets/David/DavidPrototype.unity
 *.meta
 *.meta
 *.meta
-*.ide-shm
-*.ide-wal
-*.vs/
