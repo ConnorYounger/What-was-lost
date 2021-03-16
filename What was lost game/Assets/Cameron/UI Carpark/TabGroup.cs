@@ -10,9 +10,11 @@ public class TabGroup : MonoBehaviour
     public TabButton selectedTab;
     public List<GameObject> objectsToSwap;
 
+    // Add the Tab Button to the Tab Group List
     public void Subscribe(TabButton button)
     {
-        if (tabButtons  == null)
+        // If there is no list of buttons create a new list
+        if (tabButtons == null)
         {
             tabButtons = new List<TabButton>();
         }
@@ -20,6 +22,7 @@ public class TabGroup : MonoBehaviour
         tabButtons.Add(button);
     }
 
+    // Update the button background based on hovering over it
     public void OnTabEnter(TabButton button)
     {
         ResetTabs();
@@ -29,14 +32,16 @@ public class TabGroup : MonoBehaviour
         }
     }
 
+    // Update the button background based on changing it
     public void OnTabExit(TabButton button)
     {
         ResetTabs();
     }
 
+    // Update the button background based on selecting it
     public void OnTabSelected(TabButton button)
     {
-        if(selectedTab != null)
+        if (selectedTab != null)
         {
             selectedTab.Deselect();
         }
@@ -48,13 +53,15 @@ public class TabGroup : MonoBehaviour
         ResetTabs();
         button.background.color = tabActive;
 
+        // Changes which page is displayed based on the button clicked
         int index = button.transform.GetSiblingIndex();
-        for (int i=0; i<objectsToSwap.Count; i++)
+        for (int i = 0; i < objectsToSwap.Count; i++)
         {
-            if(i == index)
+            if (i == index)
             {
                 objectsToSwap[i].SetActive(true);
-            } else
+            }
+            else
             {
                 objectsToSwap[i].SetActive(false);
             }
@@ -63,9 +70,9 @@ public class TabGroup : MonoBehaviour
 
     public void ResetTabs()
     {
-        foreach(TabButton button in tabButtons)
+        foreach (TabButton button in tabButtons)
         {
-            if (selectedTab != null && button == selectedTab) { continue;  }
+            if (selectedTab != null && button == selectedTab) { continue; }
             button.background.color = tabIdle;
         }
     }

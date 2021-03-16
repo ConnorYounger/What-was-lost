@@ -27,20 +27,23 @@ public class TabButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHandl
         tabGroup.OnTabExit(this);
     }
 
+    // Adds the game object to the Tab Group
     private void Start()
     {
         background = GetComponent<Image>();
         tabGroup.Subscribe(this);
     }
 
+    // Can be used to asign specific method call in inspector
     public void Select()
     {
-        if(onTabDeselected != null)
+        if (onTabDeselected != null)
         {
             onTabSelected.Invoke();
         }
     }
 
+    // Can be used to asign specific method call in inspector
     public void Deselect()
     {
         if (onTabDeselected != null)
