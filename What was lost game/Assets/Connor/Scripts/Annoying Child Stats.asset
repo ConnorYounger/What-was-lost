@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Annoying Child Stats
   m_EditorClassIdentifier: 
   characterName: Annoying Kid
-  triggerDistance: 3
+  triggerDistance: 10
   movementSpeed: 5
-  coolDownTime: 10
-  startLocation: {x: -213.11685, y: 4.899, z: -125.57744}
+  startLocation: {fileID: 0}

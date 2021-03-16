@@ -69,15 +69,9 @@ public class ChildrenAI : MonoBehaviour
         {
             if(Vector3.Distance(target.transform.position, transform.position) < stats.triggerDistance && currentState == 0)
             {
-                Trigger();
+                currentState = 1;
             }
         }
-    }
-
-    public void Trigger()
-    {
-        if(currentState == 0)
-        currentState = 1;
     }
 
     void Engage()
