@@ -79,3 +79,6 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 *.ide-wal
+*.json
+*.ide-wal
+*.ide-shm
