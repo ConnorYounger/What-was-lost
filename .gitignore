@@ -46,7 +46,7 @@ ExportedObj/
 *.mdb
 *.opendb
 *.VC.db
-*/.vs/
+*.vs/
 
 # Unity3D generated meta files
 *.pidb.meta
@@ -79,4 +79,5 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
+*.ide-wal
 *.ide-wal
