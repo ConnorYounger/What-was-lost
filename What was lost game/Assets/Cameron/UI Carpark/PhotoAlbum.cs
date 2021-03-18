@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PhotoAlbum : MonoBehaviour
 {
-    public RectTransform parentPanel;
+    //public RectTransform parentPanel;
     public Sprite[] photos;
     public int imageNum;
     public GameObject prevPhoto, nextPhoto, photoMask;
