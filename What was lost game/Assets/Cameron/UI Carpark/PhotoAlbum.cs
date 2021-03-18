@@ -23,7 +23,7 @@ public class PhotoAlbum : MonoBehaviour
         memoryText = GameObject.Find("Memory_Text").GetComponent<TMP_Text>();
 
         imageNum = 0;
-        memoryText.text = emptyText;
+        //memoryText.text = emptyText;
 
         UpdatePhoto();
     }
@@ -36,7 +36,7 @@ public class PhotoAlbum : MonoBehaviour
         if (photoFound[imageNum])
         {
             photoMask.SetActive(false);
-            memoryText.text = emptyText;
+            memoryText.text = memoryCaptions[imageNum];
         }
         else if (!photoFound[imageNum])
         {
