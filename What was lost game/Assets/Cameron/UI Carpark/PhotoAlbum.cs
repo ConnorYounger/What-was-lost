@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,9 @@ public class PhotoAlbum : MonoBehaviour
     public Sprite[] photos;
     public int imageNum;
     public GameObject prevPhoto, nextPhoto, photoMask;
+    private string emptyText = "...";
+    public string[] memoryCaptions = new string[4];
+    public TMP_Text memoryText;
 
     public bool[] photoFound;
 
@@ -16,8 +20,10 @@ public class PhotoAlbum : MonoBehaviour
     {
         photoMask = GameObject.Find("Photo_Mask");
         photoFound = new bool[photos.Length];
+        memoryText = GameObject.Find("Memory_Text").GetComponent<TMP_Text>();
 
         imageNum = 0;
+        memoryText.text = emptyText;
 
         UpdatePhoto();
     }
@@ -30,10 +36,12 @@ public class PhotoAlbum : MonoBehaviour
         if (photoFound[imageNum])
         {
             photoMask.SetActive(false);
+            memoryText.text = emptyText;
         }
         else if (!photoFound[imageNum])
         {
             photoMask.SetActive(true);
+            memoryText.text = emptyText;
         }
     }
 

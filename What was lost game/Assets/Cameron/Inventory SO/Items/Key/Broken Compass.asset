@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26835765583d316479c02a4b7939e833, type: 3}
   m_Name: Broken Compass
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 2848577066408730243, guid: 7a55bd1f56794ca4d971a2446cdff0bc, type: 3}
   type: 0
-  itemName: 
-  description: 
-  memoryNumber: 0
+  itemName: Broken Compass
+  description: "\u201C....Guess this isn\u2019t gonna help me find my way anymore\u201D"
+  memoryNumber: 3
