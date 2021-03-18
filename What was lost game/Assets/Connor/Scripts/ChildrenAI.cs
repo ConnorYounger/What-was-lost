@@ -7,6 +7,7 @@ public class ChildrenAI : MonoBehaviour
     public EnemyStats stats;
 
     private GameObject target;
+    private GameObject heldItem;
 
     public string targetName;
     private string[] states;
@@ -19,6 +20,8 @@ public class ChildrenAI : MonoBehaviour
     private float timer;
 
     private bool hasItem;
+
+    public Transform itemHoldPoint;
 
     void Start()
     {
@@ -113,7 +116,7 @@ public class ChildrenAI : MonoBehaviour
 
                     if (random <= itemStealChance)
                     {
-                        hasItem = true;
+                        IntteractWithPlayer();
                     }
 
                     timer = 0;
@@ -142,14 +145,107 @@ public class ChildrenAI : MonoBehaviour
         }
     }
 
+    public void IntteractWithPlayer()
+    {
+        if(stats.enemyType == EnemyStats.EnemyType.Child)
+        {
+            TakePlayerItem();
+        }
+        else if (stats.enemyType == EnemyStats.EnemyType.Dog)
+        {
+            TakePlayerMetalDetector();
+        }
+    }
+
+    void TakePlayerItem()
+    {
+        // Check to see if the target has the inventory script
+        if (target.GetComponent<PlayerMetalDetectorItem>())
+        {
+            GameObject item = target.GetComponent<PlayerMetalDetectorItem>().TakeRandomItem();
+
+            if (item != null)
+            {
+                hasItem = true;
+
+                heldItem = Instantiate(item, itemHoldPoint.position, itemHoldPoint.rotation);
+                heldItem.transform.parent = itemHoldPoint.transform;
+            }
+            else
+            {
+                StopEngageing();
+            }
+        }
+    }
+
+    void TakePlayerMetalDetector()
+    {
+        // Check to see if the target has the metal detector script
+        if (target.GetComponent<PlayerMetalDetectorItem>())
+        {
+            // Asks the script if the enemy can take the metal detector
+            heldItem = target.GetComponent<PlayerMetalDetectorItem>().TakeMetalDetector();
+
+            if (heldItem != null)
+            {
+                hasItem = true;
+
+                heldItem.transform.parent = itemHoldPoint.transform;
+            }
+            else
+            {
+                StopEngageing();
+            }
+        }
+    }
+
     public void StopEngageing()
     {
         Debug.Log("Stop Engaging");
+
+        if (hasItem)
+        {
+            ReturnItem();
+        }
 
         currentState = 2;
 
         hasItem = false;
         timer = 0;
+    }
+
+    void ReturnItem()
+    {
+        if (stats.enemyType == EnemyStats.EnemyType.Child)
+        {
+            GivePlayerItem();
+        }
+        else if (stats.enemyType == EnemyStats.EnemyType.Dog)
+        {
+            GivePlayerMetalDetector();
+        }
+    }
+
+    void GivePlayerItem()
+    {
+        if (target.GetComponent<PlayerMetalDetectorItem>())
+        {
+            target.GetComponent<PlayerMetalDetectorItem>().AddItem(heldItem);
+
+            Destroy(heldItem);
+
+            heldItem = null;
+        }
+    }
+
+    void GivePlayerMetalDetector()
+    {
+        if (target.GetComponent<PlayerMetalDetectorItem>())
+        {
+            target.GetComponent<PlayerMetalDetectorItem>().GiveMetalDetector(heldItem);
+
+            heldItem = null;
+        }
     }
 
     void CoolDown()

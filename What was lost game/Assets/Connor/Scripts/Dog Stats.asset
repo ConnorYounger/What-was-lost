@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f2aac46549db03140963b24ad5c7c64d, type: 3}
-  m_Name: Annoying Child Stats
+  m_Name: Dog Stats
   m_EditorClassIdentifier: 
-  enemyType: 0
-  characterName: Annoying Kid
+  enemyType: 1
+  characterName: Playful Dog
   triggerDistance: 3
-  movementSpeed: 5
-  coolDownTime: 10
-  startLocation: {x: -213.11685, y: 4.899, z: -125.57744}
+  movementSpeed: 7
+  coolDownTime: 5
+  startLocation: {x: -210.612, y: 4.899, z: -125.57744}
