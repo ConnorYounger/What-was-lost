@@ -13,7 +13,7 @@ public class PhotoAlbum : MonoBehaviour
     private string emptyText = "...";
     public string[] memoryCaptions = new string[4];
     public TMP_Text memoryText;
-
+    private AudioSource photoChangeAudio;
     public bool[] photoFound;
 
     private void Start()
@@ -21,6 +21,7 @@ public class PhotoAlbum : MonoBehaviour
         photoMask = GameObject.Find("Photo_Mask");
         photoFound = new bool[photos.Length];
         memoryText = GameObject.Find("Memory_Text").GetComponent<TMP_Text>();
+        photoChangeAudio = GetComponent<AudioSource>();
 
         imageNum = 0;
         //memoryText.text = emptyText;
@@ -49,6 +50,7 @@ public class PhotoAlbum : MonoBehaviour
     public void PrevPhoto()
     {
         imageNum = imageNum - 1;
+        PlayPhotoChangeAudio();
         UpdatePhoto();
     }
 
@@ -56,7 +58,14 @@ public class PhotoAlbum : MonoBehaviour
     public void NextPhoto()
     {
         imageNum = imageNum + 1;
+        PlayPhotoChangeAudio();
         UpdatePhoto();
+    }
+
+    // Play a sound effect when the photo is changed
+    private void PlayPhotoChangeAudio()
+    {
+        photoChangeAudio.Play();
     }
 
     // Display or hide previous & next button based on position in photo array
