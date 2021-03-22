@@ -35,7 +35,6 @@ public class DisplayInventory : MonoBehaviour
             newSlot.GetComponentInChildren<TMP_Text>().text = inventory.Container[i].item.itemName;
         }
     }
-
    
     private void UpdateDisplay()
     {
