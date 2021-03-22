@@ -16,4 +16,4 @@ MonoBehaviour:
   type: 0
   itemName: Dog Tags
   itemImage: {fileID: 0}
-  memoryNumber: 0
+  memoryNumber: 1

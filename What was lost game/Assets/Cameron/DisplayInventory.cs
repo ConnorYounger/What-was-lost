@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class DisplayInventory : MonoBehaviour
@@ -28,6 +29,10 @@ public class DisplayInventory : MonoBehaviour
         {
             var newSlot = Instantiate(inventory.Container[i].item.prefab, Vector3.zero, Quaternion.identity, inventoryPage.transform);
             newSlot.transform.SetParent(inventoryPage.transform);
+
+            newSlot.GetComponentsInChildren<Image>()[1].sprite = inventory.Container[i].item.itemImage;
+            newSlot.GetComponentsInChildren<Image>()[1].preserveAspect = true;
+            newSlot.GetComponentInChildren<TMP_Text>().text = inventory.Container[i].item.itemName;
         }
     }
 

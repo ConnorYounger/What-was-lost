@@ -16,4 +16,4 @@ MonoBehaviour:
   type: 0
   itemName: Broken Compass
   itemImage: {fileID: 21300000, guid: dca39c1ad8154784c9fedc1b8826c081, type: 3}
-  memoryNumber: 0
+  memoryNumber: 3

@@ -16,4 +16,4 @@ MonoBehaviour:
   type: 0
   itemName: Photo Frame
   itemImage: {fileID: 0}
-  memoryNumber: 0
+  memoryNumber: 4
