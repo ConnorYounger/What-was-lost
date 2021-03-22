@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7d41fa11ebdd244eacf7ede388df2d8, type: 3}
+  m_Script: {fileID: 11500000, guid: fda139eb7e43f0a4d9017daad1d733a4, type: 3}
   m_Name: Belt Buckle
   m_EditorClassIdentifier: 
   prefab: {fileID: 0}
   type: 2
   itemName: 
-  description: 
+  itemImage: {fileID: 0}
