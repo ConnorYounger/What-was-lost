@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class SimpleMetalDetector : MonoBehaviour
+public class MetalDetector : MonoBehaviour
 {
     //Distance detection
     public Transform target;
@@ -17,9 +17,15 @@ public class SimpleMetalDetector : MonoBehaviour
     private int randomRare;
     //Sound
     public AudioSource mDClick;
+    public AudioSource mDTone;
     private float maxFreq = 0.05f;
     float timer;
-    
+    float toneTimer;
+    private bool inRange = false;
+    void Start()
+    {
+        mDTone = GetComponent<AudioSource>();
+    }
     void Update()
     {
         //tracks distance between player and object, triggering a Collect when the player walks over the object
@@ -27,7 +33,7 @@ public class SimpleMetalDetector : MonoBehaviour
         currentPosition.y = target.position.y;
         distance = Vector3.Distance(currentPosition, target.position);
         signalStrength.fillAmount = (1.0f - (distance / 120));
-        print("distance = " + distance); //(print distance from current object to console) //- debug
+        //print("distance = " + distance); //(print distance from current object to console) //- debug
         scoreDist.text = score.ToString();
         if (Input.GetKeyDown("e"))
         {
@@ -44,13 +50,26 @@ public class SimpleMetalDetector : MonoBehaviour
 
         //Metal Detector Sound system
         timer += Time.deltaTime / distance;
-        // print(timer);
-        if (timer > maxFreq)
+        toneTimer += Time.deltaTime;
+        print(toneTimer);
+        if (timer > maxFreq && distance > 2)
         {
             mDClick.PlayOneShot(mDClick.clip, 1);
             timer = 0;
         }
+        if (distance < 2)
+        {
+            mDTone.volume = 1f;
+
+        }
+        if (distance > 2 )
+        {
+            mDTone.volume = 0f;
+
+        }
+
     }
+
     void Collect() // Runs when an object is walked over
     {
         //++score;
