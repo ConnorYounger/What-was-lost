@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e7527409399bb54bad559eabfb43670, type: 3}
   m_Name: Wedding Ring
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 1973949932364222349, guid: 75dfd48a8948f53439ca46e5b7a8e4e1, type: 3}
   type: 0
-  itemName: 
+  itemName: Wedding Ring
   itemImage: {fileID: 0}
   memoryNumber: 0

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e7527409399bb54bad559eabfb43670, type: 3}
   m_Name: Broken Compass
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 1973949932364222349, guid: 8f82c7e69cfbf2245809594a020ceaed, type: 3}
   type: 0
   itemName: Broken Compass
   itemImage: {fileID: 21300000, guid: dca39c1ad8154784c9fedc1b8826c081, type: 3}

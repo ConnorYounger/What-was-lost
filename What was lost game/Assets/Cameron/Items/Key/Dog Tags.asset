@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e7527409399bb54bad559eabfb43670, type: 3}
   m_Name: Dog Tags
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 1973949932364222349, guid: f1d1240fe5f5a40408fddc5a632670e2, type: 3}
   type: 0
-  itemName: 
+  itemName: Dog Tags
   itemImage: {fileID: 0}
   memoryNumber: 0

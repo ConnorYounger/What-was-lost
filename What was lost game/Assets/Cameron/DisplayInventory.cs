@@ -12,7 +12,7 @@ public class DisplayInventory : MonoBehaviour
 
     private void Start()
     {
-        inventoryPage = GameObject.Find("Page Inventory");
+        //inventoryPage = GameObject.Find("Page Inventory");
 
         CreateDisplay();
     }
@@ -26,7 +26,7 @@ public class DisplayInventory : MonoBehaviour
     {
         for (int i = 0; i < inventory.Container.Count; i++)
         {
-            var newSlot = Instantiate(inventorySlot);
+            var newSlot = Instantiate(inventory.Container[i].item.prefab, Vector3.zero, Quaternion.identity, inventoryPage.transform);
             newSlot.transform.SetParent(inventoryPage.transform);
         }
     }
