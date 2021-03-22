@@ -15,7 +15,6 @@ SampleScenes
 sysinfo.txt
 # Unity3D generated meta files
 *.pidb.meta
-*.png.meta
 
 ###
 # VS/MD solution and project files
