@@ -5,8 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/David/DavidPrototype.unity
-
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    guid: c29ae5c0fa439dd4fab5dd8f392e15bb
+  - enabled: 1
+    path: Assets/Scenes/EmptyBeachWithWall.unity
+    guid: 6759c7c4d9824254791f1ebda71f8a73
   m_configObjects: {}
