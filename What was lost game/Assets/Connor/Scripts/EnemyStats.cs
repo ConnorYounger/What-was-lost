@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class EnemyStats : ScriptableObject
 {
+    public enum EnemyType { Child, Dog }
+    public EnemyType enemyType;
+
     public string characterName;
 
     public float triggerDistance;
